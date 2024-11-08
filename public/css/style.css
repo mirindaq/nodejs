@@ -1,0 +1,264 @@
+/* Tổng thể */
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* Make the card body flexible, without fixed height, so it adapts to content */
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure the card image is responsive */
+.card-img-top {
+  width: 100%;
+  height: 180px; /* Fixed height for images */
+  object-fit: cover; /* Make sure the image fills the area */
+  border-radius: 10px 10px 0 0; /* Round top corners */
+}
+
+/* Card body styling */
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Allow the body to take up remaining space */
+}
+
+/* Card title */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; /* Truncate title if too long */
+  line-height: 1.2;
+}
+
+/* Card description */
+.card-text {
+  font-size: 0.875rem;
+  color: #777;
+  margin-bottom: 15px;
+  height: 60px; /* Set height for description */
+  overflow: hidden; /* Ensure description doesn't overflow */
+  text-overflow: ellipsis; /* Truncate text with ellipsis */
+}
+
+/* Styling for the price section */
+.card-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745; /* Green for price */
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Strikethrough price */
+.card-text.text-muted span {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+/* Footer with stock info */
+.card-footer {
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  font-size: 0.875rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Stock info */
+.stock-info {
+  font-weight: bold;
+}
+
+/* Make sure the card layout is responsive */
+@media (max-width: 768px) {
+  .col-md-4 {
+    /* Adjust layout on small screens */
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-sm-6 {
+    /* Adjust layout on very small screens */
+    margin-bottom: 15px;
+  }
+}
+
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Custom footer styling */
+footer {
+  background-color: #212529; /* Dark background for the footer */
+  color: white;
+}
+
+footer h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+footer ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+footer .fa {
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for social media icons */
+footer .fa:hover {
+  color: #ff5722; /* Change to an accent color on hover */
+}
+
+footer .list-unstyled {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer .list-unstyled li {
+  margin: 0 10px;
+}
+
+footer .container {
+  max-width: 1200px; /* Optional, you can adjust the container width */
+}
+
+footer .text-muted {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 767px) {
+  footer .row {
+    text-align: center;
+  }
+  footer .col-md-6 {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Header styling */
+nav.navbar {
+  background-color: #ffffff; /* Light background for the navbar */
+  border-bottom: 1px solid #ddd; /* Subtle bottom border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Small shadow for depth */
+}
+
+nav.navbar a.navbar-brand h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #007bff; /* Blue color for the brand */
+  transition: color 0.3s ease;
+}
+
+nav.navbar a.navbar-brand h1:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+nav.navbar .nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333; /* Dark text for links */
+  padding: 0.5rem 1rem; /* Adding some padding to the links */
+  transition: color 0.3s ease;
+}
+
+nav.navbar .nav-link:hover {
+  color: #007bff; /* Blue color on hover for links */
+}
+
+nav.navbar .nav-item {
+  margin-left: 20px; /* Spacing between navbar items */
+}
+
+nav.navbar .nav-item .fa {
+  transition: color 0.3s ease;
+}
+
+/* Cart badge customization */
+nav.navbar .nav-item .badge {
+  background-color: #ff5722; /* Bright accent color for cart badge */
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* User Dropdown styling */
+nav.navbar .dropdown-menu {
+  width: 300px; /* Custom width for dropdown menu */
+  border-radius: 10px;
+}
+
+nav.navbar .dropdown-menu .dropdown-item {
+  color: #333;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #f1f1f1; /* Light hover effect for dropdown items */
+}
+
+/* Avatar image inside dropdown */
+nav.navbar .dropdown-menu img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  nav.navbar .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  nav.navbar .nav-link {
+    font-size: 14px; /* Slightly smaller text on mobile */
+  }
+
+  nav.navbar .navbar-toggler {
+    border-color: #007bff; /* Custom border color for toggle */
+  }
+}
+
+.header {
+  height: 80px;
+}

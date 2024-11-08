@@ -1,0 +1,43 @@
+// Header Section
+.header 
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+    .container
+      // Brand name
+      a.navbar-brand(href='/')
+        h1 Laptopshop
+
+      // Navbar Toggle for Mobile
+      button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+
+      // Navbar Links
+      .collapse.navbar-collapse#navbarNav
+        ul.navbar-nav.ms-auto
+          // Home Link
+          li.nav-item
+            a.nav-link.active(href='/') Trang Chủ
+          // Products Link
+          li.nav-item
+            a.nav-link(href='/products') Sản Phẩm
+
+          // Cart Link
+          li.nav-item.position-relative
+            a.nav-link(href='/cart')
+              i.fa.fa-shopping-bag.fa-2x
+              span.position-absolute.top-0.start-100.translate-middle.badge.rounded-circle.bg-danger Cart Badge
+          // User Account Dropdown
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href='#', id='navbarDropdown', role='button', data-bs-toggle='dropdown', aria-expanded='false')
+              i.fas.fa-user
+            ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdown')
+              li.text-center
+                img(src="https://via.placeholder.com/150", alt="User Avatar")
+                div.my-2 User Name
+              li
+                a.dropdown-item(href='#') Quản lý tài khoản
+              li
+                a.dropdown-item(href='/order-history') Lịch sử mua hàng
+              li
+                hr.dropdown-divider
+              li
+                a.dropdown-item(href='/logout') Đăng xuất

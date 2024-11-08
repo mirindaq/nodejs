@@ -1,0 +1,9 @@
+extends ../../layouts/default.pug
+include ../../mixins/card-product.pug
+
+block main
+  .container
+    .row 
+      each product in products
+        +cardProduct(product)
+    
