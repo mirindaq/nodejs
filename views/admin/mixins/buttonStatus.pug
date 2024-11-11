@@ -1,0 +1,4 @@
+mixin buttonStatus( listStatus )
+  each status in listStatus
+    button.btn.btn-sm.mr-1.mb-1.btn-outline-success( button-status = status.status, class=` ${status.class}` ) #{status.name}
+    

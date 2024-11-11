@@ -1,5 +1,6 @@
 const Products = require('../../models/prouduct-model');
 
+// [GET] /products
 module.exports.index = async (req, res) => {
   let listProduct = await Products.find({
     status: "active",

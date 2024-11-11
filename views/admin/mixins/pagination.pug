@@ -1,0 +1,11 @@
+mixin pagination(pagination)
+  nav
+    ul.pagination.justify-content-end
+      li.page-item(class = `${pagination.currentPage > 1 ? "" : "disabled" }`)
+        button.page-link( button-pagination = pagination.currentPage - 1 ) Trước
+      -for ( let i = 1; i <= pagination.totalPage; i++ )
+        li.page-item(class = `${pagination.currentPage == i ? "active" : ""}`)
+          button.page-link(href="#" button-pagination= i) #{i}
+      
+      li.page-item(class = `${pagination.currentPage < pagination.totalPage ? "" : "disabled" }`) 
+        button.page-link(button-pagination = pagination.currentPage + 1 ) Sau

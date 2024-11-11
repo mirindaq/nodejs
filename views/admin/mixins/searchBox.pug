@@ -1,0 +1,11 @@
+mixin searchBox(keyword)
+  form.mb-1(id = "form-search")
+    .d-flex.align-items-center.mt-2
+      input#searchInput.form-control.form-control-sm.rounded.border-success(
+        type="text",
+        placeholder="Nhập từ khóa...",
+        name="keyword",
+        style="width: 300px"
+        value=keyword
+      )
+      button.btn.btn-sm.btn-success.ms-2(type="submit") Tìm

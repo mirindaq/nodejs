@@ -1,0 +1,46 @@
+extends ../../layouts/default.pug
+include ../../mixins/buttonStatus.pug
+include ../../mixins/searchBox.pug
+include ../../mixins/pagination.pug
+
+block main
+  .card.mb-3
+    .card-header 
+      h6.m-0.font-weight-bold Bộ lọc và Tìm kiếm
+    .card-body
+      .row 
+        .col-6.d-flex.align-items-center 
+          +buttonStatus(listStatus)
+        .col-6.d-flex.align-items-center.justify-content-end
+          +searchBox(keyword)
+  .card.mb-3
+    .card-header.py-3
+      h6.m-0.font-weight-bold #{pageTitle}
+    .card-body
+      .table-responsive
+        table.table.table-bordered#dataTable(width="100%" cellspacing="0")
+          thead
+            tr
+              th(scope="col") STT
+              th(scope="col") Image
+              th(scope="col") Tên sản phẩm
+              th(scope="col") Giá
+              th(scope="col") Trạng thái
+              th(scope="col") Thao tác
+          tbody
+            each product, index in products
+              tr
+                td #{index + 1}
+                td
+                  img(src= product.thumbnail alt=product.title width="60" style="height: 60px")
+                td #{product.title}
+                td $#{product.price}
+                td
+                  .badge-wrapper
+                    span.badge.px-2.py-1(class=product.status == 'active' ? 'bg-success' : 'bg-danger') 
+                      | #{product.status == 'active' ? 'Hoạt động' : 'Dừng hoạt động'}
+                td
+                  button.btn.btn-warning.mr-2 Sửa
+                  button.btn.btn-danger Xóa
+      +pagination(pagination)
+
