@@ -37,10 +37,29 @@ block main
                 td $#{product.price}
                 td
                   .badge-wrapper
-                    span.badge.px-2.py-1(class=product.status == 'active' ? 'bg-success' : 'bg-danger') 
+                    button.badge.px-2.py-1.border-0(
+                      class=product.status == 'active' ? 'bg-success' : 'bg-danger', 
+                      data-status= product.status ,
+                      data-id =product.id, 
+                      button-change-status
+                    )
                       | #{product.status == 'active' ? 'Hoạt động' : 'Dừng hoạt động'}
                 td
                   button.btn.btn-warning.mr-2 Sửa
-                  button.btn.btn-danger Xóa
+                  button.btn.btn-danger( button-delete, data-id = product.id ) Xóa
       +pagination(pagination)
+  form(
+    action="",
+    method="post",
+    path="/admin/products/change-status"
+    id="form-change-status"
+  ) 
 
+  form(
+    action="",
+    method="post",
+    path="/admin/products/delete"
+    id="form-delete"
+  )
+
+  script(src="/admin/js/product.js") 

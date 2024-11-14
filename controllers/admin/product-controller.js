@@ -39,3 +39,17 @@ module.exports.index = async (req, res) => {
   });
 }
 
+// [PATCH] /admin/products/:status/:id
+module.exports.changeStatus = async( req, res ) => {
+  const params = req.params;
+  await Products.updateOne( {_id : params.id}, { status : params.status});
+  res.redirect('back');
+}
+
+// [DELETE] /admin/products/:id
+module.exports.deleteItem = async(req, res) =>{
+  const id = req.params.id;
+  await Products.updateOne({_id: id}, {deleted : true, deletedAt : new Date()});
+  res.redirect('back');
+}
+
